@@ -1,23 +1,33 @@
-export const Details = () => {
+interface DetailsProps {
+  repos: number
+  followers: number
+  following: number
+}
+
+export const Details = ({ repos, followers, following }: DetailsProps) => {
   return (
-    <div className="w-full h-auto py-3 px-5 bg-zinc-900 flex items-center justify-between rounded">
+    <div
+      className={`w-full py-3 px-5 bg-zinc-900 flex items-center justify-between rounded`}
+    >
       <div className="flex flex-col">
-        <a
-          href="#"
+        <button
+          role="a"
           title="See all repositories for this user"
           className="text-blue-500 hover:underline"
         >
           Repos
-        </a>
-        <span>10</span>
+        </button>
+        <span>{repos}</span>
       </div>
+
       <div className="flex flex-col">
         <span className="text-zinc-400">Followers</span>
-        <span>2000</span>
+        <span>{followers}</span>
       </div>
+
       <div className="flex flex-col">
         <span className="text-zinc-400">Following</span>
-        <span>2000</span>
+        <span>{following}</span>
       </div>
     </div>
   )
