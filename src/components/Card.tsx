@@ -57,6 +57,7 @@ export const Card = ({ user, error }: CardProps) => {
               </div>
             </div>
             <Details
+              userName={user.login}
               repos={user.public_repos}
               followers={user.followers}
               following={user.following}
