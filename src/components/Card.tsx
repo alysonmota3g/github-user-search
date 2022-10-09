@@ -1,6 +1,6 @@
 import { MapPin, Link } from "phosphor-react"
 import { Fragment } from "react"
-import { User } from "../App"
+import { User } from "../pages/Home"
 import { Details } from "./Details"
 
 interface CardProps {
