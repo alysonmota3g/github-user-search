@@ -31,7 +31,12 @@ export const Home = () => {
 
     try {
       const { data: userData } = await axios.get<User>(
-        `${BASE_URL}/users/${userName}`
+        `${BASE_URL}/users/${userName}`,
+        {
+          headers: {
+            Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+          },
+        }
       )
       const {
         id,
