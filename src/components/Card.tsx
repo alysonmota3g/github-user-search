@@ -23,37 +23,46 @@ export const Card = ({ user, error }: CardProps) => {
             src={user.avatar_url}
             alt="User profile picture on github"
             title="User profile picture on github"
-            className="w-[80px] cover rounded-full"
+            className="w-[80px] sm:hidden cover rounded-full"
           />
 
           <div className="flex flex-1 flex-col gap-4">
-            <div className="flex justify-between">
+            <div className="flex mn:flex-col justify-between">
               <div className="flex flex-col justify-between">
                 <h1 className="text-zinc-300 text-lg font-bold">{user.name}</h1>
-                <a
-                  href={user.html_url}
-                  target="_blank"
-                  className="text-blue-500 hover:underline"
-                >
-                  {"@" + user.login}
-                </a>
+
+                <span className="flex text-zinc-300 items-center gap-2">
+                  @
+                  <a
+                    href={user.html_url}
+                    target="_blank"
+                    className="text-blue-500 hover:underline"
+                  >
+                    {user.login}
+                  </a>
+                </span>
               </div>
 
               <div className="flex flex-col justify-between">
-                <div className="max-w-[180px] flex items-center gap-2">
-                  <Link className="min-w-[16px] min-h-[16px]" />
-                  <a
-                    href={user.blog}
-                    target="_blank"
-                    className="truncate text-blue-500 hover:underline"
-                  >
-                    {user.blog}
-                  </a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MapPin size={16} />
-                  <span>{user.location}</span>
-                </div>
+                {user.blog && (
+                  <div className="max-w-[180px] flex items-center gap-2">
+                    <Link className="min-w-[16px] min-h-[16px]" />
+                    <a
+                      href={user.blog}
+                      target="_blank"
+                      className="truncate text-blue-500 hover:underline"
+                    >
+                      {user.blog}
+                    </a>
+                  </div>
+                )}
+
+                {user.location && (
+                  <div className="flex items-center gap-2">
+                    <MapPin size={16} />
+                    <span>{user.location}</span>
+                  </div>
+                )}
               </div>
             </div>
             <Details

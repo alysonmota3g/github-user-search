@@ -54,7 +54,7 @@ export const Repos = () => {
 
   if (!repos.length && error) {
     return (
-      <div className="h-screen flex items-center justify-center gap-3">
+      <div className="h-screen md:px-4 flex items-center justify-center gap-3">
         <Link
           to="/"
           className="bg-zinc-800 hover:bg-transparent transition-colors duration-200 p-2 rounded"
@@ -62,7 +62,7 @@ export const Repos = () => {
           <CaretLeft size={22} />
         </Link>
 
-        <h1 className="text-lg text-zinc-400 font-semibold">
+        <h1 className="text-lg mn:text-sm mn:font-bold text-zinc-400 font-semibold">
           Oops, there was a problem, try again
         </h1>
       </div>
@@ -70,7 +70,7 @@ export const Repos = () => {
   }
 
   return (
-    <div className="max-w-[400px] mx-auto h-screen flex flex-col gap-3 items-start justify-center">
+    <div className="max-w-[400px] md:px-4 mx-auto h-screen flex flex-col gap-3 items-start justify-center">
       <h1 className="text-lg text-zinc-300">
         <span className="font-semibold">{userName}</span> repositories
       </h1>

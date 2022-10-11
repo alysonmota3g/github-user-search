@@ -72,7 +72,7 @@ export const Home = () => {
   }
 
   return (
-    <div className="h-screen flex items-center justify-center bg-zinc-900">
+    <div className="h-screen md:px-4 flex items-center justify-center bg-zinc-900">
       <div className="w-full max-w-[500px] h-auto px-3 py-4 bg-zinc-800 shadow rounded transition-all duration-1000">
         <Search
           userName={userName}
