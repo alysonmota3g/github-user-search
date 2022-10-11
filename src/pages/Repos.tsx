@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import useSWRInfinite from "swr/infinite"
 import axios from "axios"
 
 import { CardRepo } from "../components/CardRepo"
 import { InfiniteScroll } from "../components/InfiniteScroll"
+import { CaretLeft } from "phosphor-react"
 
 interface Repo {
   id: number
@@ -51,9 +52,16 @@ export const Repos = () => {
       : setIsEnding(false)
   }, [data])
 
-  if (!repos && error) {
+  if (!repos.length && error) {
     return (
-      <div className="h-screen flex items-center justify-center">
+      <div className="h-screen flex items-center justify-center gap-3">
+        <Link
+          to="/"
+          className="bg-zinc-800 hover:bg-transparent transition-colors duration-200 p-2 rounded"
+        >
+          <CaretLeft size={22} />
+        </Link>
+
         <h1 className="text-lg text-zinc-400 font-semibold">
           Oops, there was a problem, try again
         </h1>
